@@ -1,0 +1,16 @@
+project_id = "tnileebbgybkejzvgask"
+
+# Endpoints chamados por sistemas externos (sem JWT do Supabase). A autenticação é feita
+# dentro da função: slug secreto + rate limit (leads) e secret + assinatura HMAC (pagamentos).
+[functions.processar-webhook-automacao]
+verify_jwt = false
+
+[functions.abacatepay-webhook]
+verify_jwt = false
+
+# Funções chamadas pelo dashboard exigem JWT do usuário (padrão).
+[functions.whatsapp-instancia]
+verify_jwt = true
+
+[functions.abacatepay-checkout]
+verify_jwt = true
